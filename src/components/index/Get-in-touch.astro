@@ -1,0 +1,19 @@
+---
+interface Props {
+	title: string;
+	body: string;
+  image: string;
+}
+const { title, body , image} = Astro.props;
+---
+
+<section id='get-in-touch' class=" h-screen	flex">
+  <div class="content">
+    <h3>{title}</h3>
+    {body}
+    form
+  </div>
+  <div class="image">
+    <img src={image.src} width={image.width} height={image.height} alt="map">
+  </div>
+</section>
