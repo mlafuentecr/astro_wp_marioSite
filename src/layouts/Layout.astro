@@ -1,4 +1,5 @@
 ---
+import MainMenu from '../components/menu/Main-menu.astro';
 interface Props {
 	title: string;
 }
@@ -17,6 +18,7 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
+		<MainMenu />
 		<slot />
 	</body>
 </html>
@@ -51,4 +53,45 @@ const { title } = Astro.props;
 	body:has(main.bg-cyan){
 		background-color: var(--mainColor)
 	}
+	nav img {
+    filter: invert(80%) sepia(14%) saturate(7160%) hue-rotate(123deg) brightness(88%) contrast(97%);
+}
+.mainNav  .navbar-line{
+	height: 2px;
+	display: flex;
+}
+nav footer > a {
+	overflow: hidden;
+	text-indent: 999;
+}
+@media (min-width:768px ) {
+	nav{
+		background-color: red!important;
+		align-items: center;
+		transition: 0.5s all;
+	}
+	nav > a span, footer > a span{
+	display: none;
+	}
+	nav:hover{
+		background-color: red!important;
+		width: 11rem!important;
+		transition: 0.5s all;
+	
+	}
+	.mainNav nav > a {
+	justify-content: center;
+	min-height: 80px;
+	min-width: 80px;
+	background-color: yellow;
+	}
+	nav:hover > a {
+		justify-content: start;
+	}
+	nav:hover > a span{
+	display: block;
+	text-wrap: nowrap;
+	}
+
+}
 </style>
