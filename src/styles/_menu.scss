@@ -1,0 +1,68 @@
+@import './variables';
+
+.marioAstro {
+	// NAV
+	.mainNav {
+		position: relative;
+		.navbar-line {
+			height: 2px;
+			display: flex;
+		}
+		nav {
+			border: 4px solid pink;
+			height: 80px;
+			overflow: hidden;
+			display: flex;
+			justify-content: flex-start;
+			.navbar-toggler {
+				min-height: 45px;
+				display: flex;
+			}
+			img {
+				height: 35px;
+				filter: invert(80%) sepia(14%) saturate(7160%) hue-rotate(123deg) brightness(88%) contrast(97%);
+			}
+		}
+		&.active {
+			height: 100vh;
+
+			a {
+				span {
+					opacity: 1;
+				}
+			}
+		}
+	} // mainNav
+
+	//DESKTOP
+	@media (min-width: 768px) {
+		.mainNav {
+			border: 4px solid rgb(14, 216, 48);
+			position: fixed;
+
+			&.active {
+				border: 4px solid rgb(14, 216, 48);
+				nav {
+					width: 180px;
+				}
+			}
+			nav {
+				transition: 0.5s all;
+				width: 80px;
+
+				a {
+					span {
+						opacity: 0;
+					}
+				}
+				&:hover {
+					a {
+						span {
+							opacity: 1;
+						}
+					}
+				}
+			}
+		}
+	}
+} //mario

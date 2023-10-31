@@ -3,8 +3,8 @@
 const { href, text } = Astro.props;
 ---
 
-<a href=`${href}` target="_blank" rel="noopener noreferrer" class="flex min-w-full h-5 bg-slate-600">
+<a class="bg-slate-500  overflow-hidden  ps-3 m-3  h-10  whitespace-nowrap flex flex-nowrap gap-3 items-center capitalize " href=`${href}` target="_blank" rel="noopener noreferrer" class="flex min-w-full h-5 bg-slate-600">
   <slot name="before" />
-  <slot/> 
+  <span ><slot /></span>
   <slot name="after" />
 </a>
