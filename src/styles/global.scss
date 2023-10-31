@@ -1,0 +1,54 @@
+:root {
+	--mainColor: #04d0c7;
+	--accent: 136, 58, 234;
+	--accent-light: 224, 204, 250;
+	--accent-dark: 49, 10, 101;
+	--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), rgb(var(--accent-light)) 30%, white 60%);
+}
+.marioAstro {
+	// UTILITIS
+	code {
+		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+	}
+	body,
+	html {
+		height: 100%;
+	}
+
+	body {
+		&:has(main.bg-cyan) {
+			background-color: var(--mainColor);
+		}
+	}
+	// NAV
+	.mainNav {
+		.navbar-line {
+			height: 2px;
+			display: flex;
+		}
+		nav {
+			img {
+				filter: invert(80%) sepia(14%) saturate(7160%) hue-rotate(123deg) brightness(88%) contrast(97%);
+			}
+		}
+		footer {
+			& > a {
+				overflow: hidden;
+				text-indent: 999;
+			}
+		}
+	} // mainNav
+} //mario
+
+//DESKTOP
+@media (min-width: 768px) {
+	nav {
+		background-color: red !important;
+		align-items: center;
+		transition: 0.5s all;
+		& > a span,
+		footer > a span {
+			display: none;
+		}
+	}
+}

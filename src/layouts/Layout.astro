@@ -1,97 +1,32 @@
 ---
-import MainMenu from '../components/menu/Main-menu.astro';
+
 interface Props {
 	title: string;
 }
-
+const canonicalURL  = Astro.url.pathname === '/' ? 'index' : Astro.url.pathname;
 const { title } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+	<!-- Global Metadata -->
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+	<!-- Primary Meta Tags -->
+	<title>{title}</title>
+	<meta name="title" content={title} />
+	<meta name="description" content="Astro description" />
+	<meta name="viewport" content="width=device-width" />
+	<meta name="generator" content={Astro.generator} />
+
+		<link rel="stylesheet" href="./css/global.min.css">
+
 	</head>
-	<body>
-		<MainMenu />
+	<body class=`marioAstro ${ canonicalURL }`>
 		<slot />
 	</body>
 </html>
-<style is:global>
-	:root {
-		--mainColor:#04d0c7;
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
 
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
-	body, html{
-		height: 100%;
-	}
-	body:has(main.bg-cyan){
-		background-color: var(--mainColor)
-	}
-	nav img {
-    filter: invert(80%) sepia(14%) saturate(7160%) hue-rotate(123deg) brightness(88%) contrast(97%);
-}
-.mainNav  .navbar-line{
-	height: 2px;
-	display: flex;
-}
-nav footer > a {
-	overflow: hidden;
-	text-indent: 999;
-}
-@media (min-width:768px ) {
-	nav{
-		background-color: red!important;
-		align-items: center;
-		transition: 0.5s all;
-	}
-	nav > a span, footer > a span{
-	display: none;
-	}
-	nav:hover{
-		background-color: red!important;
-		width: 11rem!important;
-		transition: 0.5s all;
-	
-	}
-	.mainNav nav > a {
-	justify-content: center;
-	min-height: 80px;
-	min-width: 80px;
-	background-color: yellow;
-	}
-	nav:hover > a {
-		justify-content: start;
-	}
-	nav:hover > a span{
-	display: block;
-	text-wrap: nowrap;
-	}
-
-}
-</style>

@@ -2,14 +2,16 @@
 import Layout from '../layouts/Layout.astro';
 import GetinTouch from '../components/index/Get-in-touch.astro';
 import getInTouchImg from '../assets/images/map.png';
+import MainMenu from '../components/menu/Main-menu.astro';
 const bodyGetIntouch= `
 My inbox is readily accessible and welcomes your queries, feedback, or even a simple greeting. I’m committed to providing prompt responses to your messages, so please feel free to reach out at any time, and I’ll do my utmost to connect with you!
 `
----
 
+---
+<MainMenu />
 <Layout title="Welcome to Astro.">
-	
-	<main class="bg-cyan  h-screen	px-4">
+
+	<main class="index bg-cyan  h-screen	px-4">
 		<section id='about-me' class=" h-screen	">
 			holas
 		</section>

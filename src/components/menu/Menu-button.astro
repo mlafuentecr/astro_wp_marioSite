@@ -1,10 +1,10 @@
 ---
 // Usage: <MenuButton greeting="Howdy" name="Partner" />
-const { href, name } = Astro.props;
+const { href, text } = Astro.props;
 ---
 
 <a href=`${href}` target="_blank" rel="noopener noreferrer" class="flex min-w-full h-5 bg-slate-600">
   <slot name="before" />
-  <span><slot /></span>
+  <slot/> 
   <slot name="after" />
 </a>
