@@ -4,6 +4,7 @@
 	// NAV
 	.mainNav {
 		position: relative;
+		z-index: 90;
 		.navbar-line {
 			height: 2px;
 			display: flex;
@@ -47,7 +48,7 @@
 	@media (min-width: 768px) {
 		.mainNav {
 			position: fixed;
-
+			z-index: 90;
 			&.active {
 				nav {
 					width: 180px;

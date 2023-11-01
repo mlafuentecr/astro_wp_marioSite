@@ -30,43 +30,43 @@
 //   return data;
 // }
 
-// export async function homePagePostsQuery() {
-// 	const response = await fetch(import.meta.env.WORDPRESS_API_URL, {
-// 		method: 'POST',
-// 		headers: { 'Content-Type': 'application/json' },
-// 		body: JSON.stringify({
-// 			query: ` pageBy(pageId: 13) {
-//           id
-//           acf_index {
-//             skillsTitle
-//             seoTitle
-//             seoDescription
-//             contactMe
-//             aboutText
-//             aboutTecnologiesItems
-//             aboutImg {
-//               altText
-//               srcSet
-//             }
-//             contactMeImg {
-//               altText
-//               srcSet
-//             }
-//             skills {
-//               skillColor
-//               skillName
-//               skillPorcentage
-//             }
-//           }
-//         }
-//       `,
-// 		}),
-// 	});
+export async function homePagePostsQuery() {
+	const response = await fetch('https://www.mariolafuente-admin.sitecr.com/graphqlmlm', {
+		method: 'POST',
+		headers: { 'Content-Type': 'application/json' },
+		body: JSON.stringify({
+			query: `query NewQuery {
+  pageBy(pageId: 13) {
+    id
+    acf_index {
+      skillsTitle
+      seoTitle
+      seoDescription
+      contactMe
+      aboutText
+      aboutTecnologiesItems
+      aboutImg {
+        altText
+        sourceUrl
+        srcSet
+      }
+      contactMeImg {
+        altText
+        sourceUrl
+        srcSet
+      }
+      skills {
+        skillColor
+        skillName
+        skillPorcentage
+      }
+    }
+  }
+}
+      `,
+		}),
+	});
 
-// 	const json = await response.json();
-// 	if (json.errors) {
-// 		console.log(json.errors);
-// 		throw new Error('GraphQL query failed.');
-// 	}
-// 	const { film } = json.data;
-// }
+	const { data } = await response.json();
+	return data;
+}

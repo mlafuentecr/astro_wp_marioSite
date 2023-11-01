@@ -4,6 +4,12 @@ import GetinTouch from '../components/index/Get-in-touch.astro';
 import Aboutme from '../components/index/Aboutme.astro';
 import getInTouchImg from '../assets/images/map.png';
 import MainMenu from '../components/menu/Main-menu.astro';
+import { homePagePostsQuery } from "../lib/api";
+const data = await homePagePostsQuery();
+const {skillsTitle, seoTitle, seoDescription, contactMe, aboutText, aboutTecnologiesItems, aboutImg} = data.pageBy.acf_index;
+//console.log(skillsTitle, seoTitle, seoDescription, contactMe, aboutText, aboutTecnologiesItems, aboutImg)
+console.log(aboutImg)
+// const posts = data.posts.nodes;
 
 //Astro.response.headers.set('Cache-Control','max-age=600, must-revalidate');
 const bodyGetIntouch= `
@@ -12,14 +18,14 @@ My inbox is readily accessible and welcomes your queries, feedback, or even a si
 
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title={seoTitle || 'Front End Web Developer from Costa Rica Front End Web Developer'} description={seoDescription}}>
 	<MainMenu />
-	<main class="index bg-cyan  h-screen">
-		<Aboutme />
-		<section id='skills' class=" h-screen	p-4	purpleLight text-white">
+	<main class="index bg-cyan  min-h-screen">
+		<Aboutme content={aboutText}  img={aboutImg} />
+		<section id='skills' class=" min-h-screen	p-4	purpleLight text-white">
 			skills
 		</section>
-		<section id='work' class="h-screen	p-4 ">
+		<section id='work' class="min-h-screen	p-4 ">
 			work
 		</section>
 		<GetinTouch title="Get In Touch" body={bodyGetIntouch} image={getInTouchImg}/>

@@ -1,16 +1,61 @@
 ---
-// interface Props {
-// 	title: string;
-// 	body: string;
-//   image: ImageMetadata;
-// }
-// const { title, body , image} = Astro.props;
+interface Props {
+	content: string;
+    img: any;
+}
+const {  content, img } = Astro.props;
+console.log(img)
 ---
 
-<section id='aboutme' class=" h-screen		p-4 ">
-  about me screenxxx
+<section id='aboutme' class=" min-h-screen p-4 flex flex-col md:flex-row ">
+  <div class="about_img border-2 ">
+  <img
+  srcset={img.srcSet}
+  sizes="(max-width: 320px) 300w,
+  (max-width: 480px) 768w,
+  1366w"
+  alt={img.altText || 'mariolafuente webdesigner'}
+  />
+</div>
+  <div class="about_text" set:html={content}></div>
 </section>
 
 <style>
-	
+	.about_img{
+    position: absolute;
+    overflow: hidden;
+    left: 0px;
+    z-index: 5;
+  }
+  /* //DESKTOP */
+ @media (max-width: 768px) {
+  #aboutme {
+    margin-top: 100px;
+    margin-bottom: 100px;
+
+}
+  .about_img {
+    position: relative;
+    border: 0px solid rgb(59, 32, 87);
+    border-radius: 0%;
+    overflow: hidden;
+    display: flex;
+    min-height: 400px;
+    border-radius: 50%;
+    border: 10px solid rgb(59, 32, 87);
+    margin: auto;
+  
+}
+  .about_img img{
+    object-fit: cover;
+    width: 100%;
+    min-height: 400px;
+    z-index: 10;
+    position: relative;
+  }
+  .about_text{
+    position: relative;
+    /* top:100px; */
+  }
+ }
 </style>
