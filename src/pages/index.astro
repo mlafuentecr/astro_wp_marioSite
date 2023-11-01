@@ -1,23 +1,25 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import GetinTouch from '../components/index/Get-in-touch.astro';
+import Aboutme from '../components/index/Aboutme.astro';
 import getInTouchImg from '../assets/images/map.png';
 import MainMenu from '../components/menu/Main-menu.astro';
+
+//Astro.response.headers.set('Cache-Control','max-age=600, must-revalidate');
 const bodyGetIntouch= `
 My inbox is readily accessible and welcomes your queries, feedback, or even a simple greeting. I’m committed to providing prompt responses to your messages, so please feel free to reach out at any time, and I’ll do my utmost to connect with you!
 `
+
 ---
 
 <Layout title="Welcome to Astro.">
 	<MainMenu />
-	<main class="index bg-cyan  h-screen	px-4">
-		<section id='about-me' class=" h-screen	">
-			about me screen
-		</section>
-		<section id='skills' class=" h-screen	">
+	<main class="index bg-cyan  h-screen">
+		<Aboutme />
+		<section id='skills' class=" h-screen	p-4	purpleLight text-white">
 			skills
 		</section>
-		<section id='work' class="h-screen	">
+		<section id='work' class="h-screen	p-4 ">
 			work
 		</section>
 		<GetinTouch title="Get In Touch" body={bodyGetIntouch} image={getInTouchImg}/>
