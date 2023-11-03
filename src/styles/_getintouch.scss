@@ -1,0 +1,28 @@
+#getInTouch {
+	.image {
+		img {
+			height: 100%;
+			width: auto;
+		}
+	}
+	.content {
+		height: 100%;
+		width: auto;
+	}
+	h3 {
+		@include title;
+		color: $mainColor;
+	}
+	//DESKTOP
+	@media (min-width: 768px) {
+		gap: 50px;
+		.image {
+			max-width: 40%;
+			height: 100%;
+			margin-right: 80px;
+		}
+		.content {
+			max-width: 40%;
+		}
+	}
+}

@@ -1,14 +1,17 @@
 ---
+
+
 interface Props {
 	content: string;
+  technologies: string,
     img: any;
 }
-const {  content, img } = Astro.props;
-console.log(img)
+const {  content, img , technologies} = Astro.props;
+
 ---
 
 <section id='aboutme' class=" min-h-screen p-4 flex flex-col md:flex-row ">
-  <div class="about_img border-2 ">
+  <div class="about_img  ">
   <img
   srcset={img.srcSet}
   sizes="(max-width: 320px) 300w,
@@ -17,45 +20,29 @@ console.log(img)
   alt={img.altText || 'mariolafuente webdesigner'}
   />
 </div>
-  <div class="about_text" set:html={content}></div>
+<div class="about_text">
+  <div  set:html={content} />
+  <div class="tagcloud" data-words={technologies} />
+</div>
 </section>
 
-<style>
-	.about_img{
-    position: absolute;
-    overflow: hidden;
-    left: 0px;
-    z-index: 5;
-  }
-  /* //DESKTOP */
- @media (max-width: 768px) {
-  #aboutme {
-    margin-top: 100px;
-    margin-bottom: 100px;
+ <script  >
+  let width = screen.width;
+  console.log(width)
+  if(width> 770){
+    const container = document.querySelector('.tagcloud');
+let text = container.dataset.words.split(',');
 
-}
-  .about_img {
-    position: relative;
-    border: 0px solid rgb(59, 32, 87);
-    border-radius: 0%;
-    overflow: hidden;
-    display: flex;
-    min-height: 400px;
-    border-radius: 50%;
-    border: 10px solid rgb(59, 32, 87);
-    margin: auto;
-  
-}
-  .about_img img{
-    object-fit: cover;
-    width: 100%;
-    min-height: 400px;
-    z-index: 10;
-    position: relative;
+const fallback = [
+    '3D', 'TagCloud', 'JavaScript',
+    'CSS3', 'Animation', 'Interactive',
+    'Reacjs', 'Gatsby', 'AtroJs',
+    'Git', 'Adobe',
+];
+ const options = {radius:100};
+ const wordsToUse = text.length > 0 ? text : fallback;
+ TagCloud(container, wordsToUse , options);
   }
-  .about_text{
-    position: relative;
-    /* top:100px; */
-  }
- }
-</style>
+
+</script> 
+<script type="text/javascript" src="/js/TagCloud.min.js"></script> 

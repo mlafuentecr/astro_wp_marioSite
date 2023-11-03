@@ -2,13 +2,14 @@
 import Layout from '../layouts/Layout.astro';
 import GetinTouch from '../components/index/Get-in-touch.astro';
 import Aboutme from '../components/index/Aboutme.astro';
+import Skills from '../components/index/Skills.astro';
 import getInTouchImg from '../assets/images/map.png';
 import MainMenu from '../components/menu/Main-menu.astro';
 import { homePagePostsQuery } from "../lib/api";
 const data = await homePagePostsQuery();
-const {skillsTitle, seoTitle, seoDescription, contactMe, aboutText, aboutTecnologiesItems, aboutImg} = data.pageBy.acf_index;
+const {skillsTitle, skills, seoTitle, seoDescription, contactMe, aboutText, aboutTecnologiesItems, aboutImg} = data.pageBy.acf_index;
 //console.log(skillsTitle, seoTitle, seoDescription, contactMe, aboutText, aboutTecnologiesItems, aboutImg)
-console.log(aboutImg)
+// console.log(aboutTecnologiesItems)
 // const posts = data.posts.nodes;
 
 //Astro.response.headers.set('Cache-Control','max-age=600, must-revalidate');
@@ -18,13 +19,11 @@ My inbox is readily accessible and welcomes your queries, feedback, or even a si
 
 ---
 
-<Layout title={seoTitle || 'Front End Web Developer from Costa Rica Front End Web Developer'} description={seoDescription}}>
+<Layout title={seoTitle || 'Front End Web Developer from Costa Rica Front End Web Developer'} description={seoDescription} >
 	<MainMenu />
 	<main class="index bg-cyan  min-h-screen">
-		<Aboutme content={aboutText}  img={aboutImg} />
-		<section id='skills' class=" min-h-screen	p-4	purpleLight text-white">
-			skills
-		</section>
+		<Aboutme content={aboutText}  img={aboutImg} technologies={aboutTecnologiesItems}/>
+		<Skills skills={skills} contentText={skillsTitle} />
 		<section id='work' class="min-h-screen	p-4 ">
 			work
 		</section>

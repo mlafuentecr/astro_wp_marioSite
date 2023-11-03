@@ -1,18 +1,10 @@
 @import './variables';
 @import './menu';
+@import './aboutme';
+@import './skills';
+@import './getintouch';
 
 .marioAstro {
-	// UTILITIS
-	code {
-		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-	}
-	//COLORS
-	.purpleDark {
-		background-color: #2f1948;
-	}
-	.purpleLight {
-		background-color: #492e68;
-	}
 	body,
 	html {
 		height: 100%;
@@ -23,9 +15,9 @@
 	&:has(main.bg-cyan) {
 		background-color: var(--mainColor);
 	}
+
+	//DESKTOP
+	// @media (min-width: 768px) {
+
+	// }
 } //mario
-
-//DESKTOP
-// @media (min-width: 768px) {
-
-// }

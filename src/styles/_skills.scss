@@ -1,0 +1,49 @@
+@import './variables';
+
+.marioAstro {
+	//MObile
+	#skills {
+		.skillgroup {
+			gap: 10px;
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			border-radius: 4rem;
+			margin-top: 3rem;
+			.progressBar {
+				overflow: hidden;
+				border-radius: 4rem;
+				color: black;
+				background-color: rgb(23, 13, 35);
+				& > div {
+					height: 1.6rem;
+					padding-left: 15px;
+					padding-right: 15px;
+					font-weight: 600;
+				}
+			}
+		}
+		.contentText {
+			h2 {
+				@include title;
+				color: $mainColor;
+			}
+		}
+	}
+	//DESKTOP
+	@media (min-width: 768px) {
+		#skills {
+			display: flex;
+			gap: 50px;
+			.contentText,
+			.skillgroup {
+				width: 100%;
+				max-width: 40%;
+			}
+			.skillgroup {
+				margin-top: 0rem;
+				padding-top: 65px;
+			}
+		}
+	}
+}

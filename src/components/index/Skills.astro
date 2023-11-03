@@ -1,0 +1,16 @@
+
+---
+interface Props {
+	skills: Array<object>;
+	contentText: string;
+}
+const {  skills, contentText } = Astro.props;
+
+---
+<section id='skills' class=" min-h-screen	p-4	purpleLight text-white">
+  <div class="contentText" set:html={contentText}></div>
+  <div class="skillgroup">
+      {skills.map((skill) => <div class="progressBar"><div style={`background-color: ${skill.skillColor}; max-width: ${skill.skillPorcentage}%`}>{skill.skillName}</div></div>)}
+  </div>
+</section>
+ 

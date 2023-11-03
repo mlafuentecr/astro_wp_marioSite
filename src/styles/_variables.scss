@@ -1,8 +1,31 @@
 $mainColor: #05d0c7;
+$purpleColor: #3b2057;
+//sizes
+$fontSize_md: 14px;
+$fontSize_lg: 18px;
+$fontSize_xl: 22px;
+$fontSize_xxl: 24px;
+$fontSize_xxxl: 42px;
+//TITLE
+@mixin title {
+	font-size: $fontSize_xxxl;
+	font-weight: 600;
+}
 :root {
 	--mainColor: #05d0c7;
-	--accent: 136, 58, 234;
+	--accent: #3b2057;
 	--accent-light: 224, 204, 250;
 	--accent-dark: 49, 10, 101;
 	--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), rgb(var(--accent-light)) 30%, white 60%);
+}
+// UTILITIS
+code {
+	font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+}
+//COLORS
+.purpleDark {
+	background-color: #2f1948;
+}
+.purpleLight {
+	background-color: #492e68;
 }
