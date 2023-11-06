@@ -18,6 +18,7 @@
     "typescript": "^5.2.2"
   },
   "devDependencies": {
-    "sass": "^1.69.5"
+    "sass": "^1.69.5",
+    "tailwindcss-animated": "^1.0.1"
   }
 }

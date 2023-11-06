@@ -1,0 +1,7 @@
+.marioAstro {
+	.slide-in-from-right {
+		left: 50%; // position the box in the middle of the viewport
+		transition: left 1000ms;
+		background-color: red !important;
+	}
+}

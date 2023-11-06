@@ -6,6 +6,7 @@ import Skills from '../components/index/Skills.astro';
 import getInTouchImg from '../assets/images/map.png';
 import MainMenu from '../components/menu/Main-menu.astro';
 import { homePagePostsQuery } from "../lib/api";
+
 const data = await homePagePostsQuery();
 const {skillsTitle, skills, seoTitle, seoDescription, contactMe, aboutText, aboutTecnologiesItems, aboutImg} = data.pageBy.acf_index;
 //console.log(skillsTitle, seoTitle, seoDescription, contactMe, aboutText, aboutTecnologiesItems, aboutImg)
@@ -24,10 +25,39 @@ My inbox is readily accessible and welcomes your queries, feedback, or even a si
 	<main class="index bg-cyan  min-h-screen">
 		<Aboutme content={aboutText}  img={aboutImg} technologies={aboutTecnologiesItems}/>
 		<Skills skills={skills} contentText={skillsTitle} />
-		<section id='work' class="min-h-screen	p-4 ">
+		<section id='work' class="min-h-screen	p-4 mt-20">
 			work
 		</section>
 		<GetinTouch title="Get In Touch" body={bodyGetIntouch} image={getInTouchImg}/>
 	
 	</main>
 </Layout>
+
+<script  >
+	const options = {
+  root: null, // Use the viewport as the root
+  rootMargin: '0px', // No margin
+  threshold: 0.5, // 50% of the element is in the viewport
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      // The div is in the viewport
+			entry.target.classList.add(`slide-in-from-right`);
+			console.log('Div is in the viewport', entry.target);
+    } else {
+      // The div is not in the viewport
+			entry.target.classList.remove(`slide-in-from-right`);
+      console.log('Div is not in the viewport', entry.target);
+    }
+  });
+}, options);
+
+    const animationDivs = document.querySelectorAll('.animate');
+		animationDivs.forEach(div => {
+			observer.observe(div);
+	 });
+
+
+</script> 
