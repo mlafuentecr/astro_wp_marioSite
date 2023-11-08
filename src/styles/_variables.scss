@@ -9,7 +9,9 @@ $fontSize_xxxl: 42px;
 //TITLE
 @mixin title {
 	font-size: $fontSize_xxxl;
+	line-height: normal;
 	font-weight: 600;
+	margin-bottom: 1rem;
 }
 :root {
 	--mainColor: #05d0c7;

@@ -1,0 +1,15 @@
+@import './variables';
+
+.marioAstro {
+	//MObile
+	//ABOUT ME
+	#work {
+	}
+
+	//DESKTOP
+	@media (min-width: 768px) {
+		//ABOUT ME
+		#aboutme {
+		}
+	}
+}
