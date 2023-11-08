@@ -1,5 +1,5 @@
 ---
-
+import { ViewTransitions } from 'astro:transitions';
 interface Props {
 	title: string;
 	description: string;
@@ -24,7 +24,7 @@ const { title, description } = Astro.props;
 	<meta name="generator" content={Astro.generator} />
 
 	<link rel="stylesheet" href="./css/global.min.css">
-
+	<ViewTransitions />
 	</head>
 	<body class=`marioAstro ${ canonicalURL }`>
 		<slot />

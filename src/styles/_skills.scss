@@ -35,11 +35,7 @@
 		#skills {
 			display: flex;
 			gap: 50px;
-			.contentText,
-			.skillgroup {
-				width: 100%;
-				max-width: 40%;
-			}
+
 			.skillgroup {
 				margin-top: 0rem;
 				padding-top: 65px;

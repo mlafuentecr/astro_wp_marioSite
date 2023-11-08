@@ -10,8 +10,8 @@ const {  content, img , technologies} = Astro.props;
 
 ---
 
-<section id='aboutme' class=" min-h-screen p-4 flex flex-col md:flex-row ">
-  <div class="about_img  ">
+<section id='aboutme' class="animate  min-h-screen p-4 flex flex-col md:flex-row ">
+  <div class="about_img  noshow" data-move="left-to-right">
   <img
   srcset={img.srcSet}
   sizes="(max-width: 320px) 300w,
@@ -20,7 +20,7 @@ const {  content, img , technologies} = Astro.props;
   alt={img.altText || 'mariolafuente webdesigner'}
   />
 </div>
-<div class="about_text">
+<div class="about_text noshow " data-move="left-to-right">
   <div  set:html={content} />
   <div class="tagcloud" data-words={technologies} />
 </div>
@@ -31,7 +31,7 @@ const {  content, img , technologies} = Astro.props;
   console.log(width)
   if(width> 770){
     const container = document.querySelector('.tagcloud');
-let text = container.dataset.words.split(',');
+    let text = container?.dataset.words.split(',');
 
 const fallback = [
     '3D', 'TagCloud', 'JavaScript',

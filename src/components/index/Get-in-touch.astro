@@ -7,13 +7,13 @@ interface Props {
 const { title, body , image} = Astro.props;
 ---
 
-<section  id='getInTouch' class="h-screen flex content-start items-start justify-between purpleDark text-white	 ">
-  <div class="content items-center mt-20 flex flex-wrap align-top content-start  p-4 text-left">
+<section  id='getInTouch' class="animate  flex content-start items-start justify-between purpleDark text-white	 ">
+  <div class="content noshow  items-center mt-20 flex flex-wrap align-top content-start  p-4 text-left" data-move="bottom-to-top">
     <h3 class="text-5xl	 whitespace-nowrap font-bold flex flex-1 mb-5 ">{title}</h3>
     {body}
     <div class="form text-white">formxx</div>
   </div>
-  <div class="image flex ">
+  <div class="image flex noshow " data-move="left-to-right">
     <img src={image.src} width="auto" height='100%' alt="map">
   </div>
 </section>

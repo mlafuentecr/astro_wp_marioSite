@@ -5,6 +5,7 @@
 	//ABOUT ME
 	#aboutme {
 		padding-top: 100px;
+		overflow: hidden;
 		& .about {
 			&_text {
 				position: relative;
@@ -55,7 +56,7 @@
 				&_text {
 					width: 40%;
 					margin-left: 45%;
-					padding-top: 10%;
+					padding-top: 8%;
 					height: 100%;
 					position: absolute;
 				}
