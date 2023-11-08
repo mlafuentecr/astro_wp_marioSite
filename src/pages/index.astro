@@ -11,13 +11,8 @@ const data = await homePagePostsQuery();
 const {skillsTitle, skills, seoTitle, seoDescription, contactMe, gallerySection, aboutText, aboutTecnologiesItems, aboutImg} = data.pageBy.acf_index;
 //console.log(skillsTitle, seoTitle, seoDescription, contactMe, aboutText, aboutTecnologiesItems, aboutImg)
 //const posts = data.posts.nodes;
-console.log( gallerySection[0].galleryTitle )
+console.log( gallerySection )
 //console.log( gallerySection )
-
-//Astro.response.headers.set('Cache-Control','max-age=600, must-revalidate');
-const bodyGetIntouch= `
-My inbox is readily accessible and welcomes your queries, feedback, or even a simple greeting. I’m committed to providing prompt responses to your messages, so please feel free to reach out at any time, and I’ll do my utmost to connect with you!
-`
 
 ---
 
@@ -26,8 +21,27 @@ My inbox is readily accessible and welcomes your queries, feedback, or even a si
 	<main class="index bg-cyan  min-h-screen">
 		<Aboutme content={aboutText}  img={aboutImg} technologies={aboutTecnologiesItems}/>
 		<Skills skills={skills} contentText={skillsTitle} />
-		<section id='work' class="min-h-screen	p-4 mt-20">
-			<div class="title" set:html={gallerySection[0].galleryTitle}></div>
+		<section id='work' class="min-h-screen	p-4 mt-20" >
+			<div class="gallery">
+				{gallerySection.map((post:any) => 
+					<div class="gallery-content"  > 
+						<div class="title" set:html={post.galleryTitle} ></div>
+						{post.workGalleryImgs.map((img:any)=>	
+							
+								<img
+							srcset={img.srcSet}
+							sizes="(max-width: 320px) 300w,
+							(max-width: 480px) 768w,
+							1366w"
+							alt={img.altText || 'mariolafuente webdesigner'}
+							/>
+							
+						
+							)}
+						</div>
+					
+)}
+		</div>
 		</section>
 		<GetinTouch title="Get In Touch" body={contactMe} image={getInTouchImg}/>
 	

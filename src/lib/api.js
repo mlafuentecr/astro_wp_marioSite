@@ -36,41 +36,40 @@ export async function homePagePostsQuery() {
 		headers: { 'Content-Type': 'application/json' },
 		body: JSON.stringify({
 			query: `query NewQuery {
-          pageBy(pageId: 13) {
-            id
-            acf_index {
-              skillsTitle
-              seoTitle
-              seoDescription
-              contactMe
-              aboutText
-              aboutTecnologiesItems
-              aboutImg {
+        pageBy(pageId: 13) {
+          id
+          acf_index {
+            skillsTitle
+            seoTitle
+            seoDescription
+            contactMe
+            aboutText
+            aboutTecnologiesItems
+            aboutImg {
+              altText
+              sourceUrl
+              srcSet
+            }
+            contactMeImg {
+              altText
+              sourceUrl
+              srcSet
+            }
+            skills {
+              skillColor
+              skillName
+              skillPorcentage
+            }
+            gallerySection {
+              galleryTitle
+              workGalleryImgs {
                 altText
-                sourceUrl
                 srcSet
-              }
-              contactMeImg {
-                altText
-                sourceUrl
-                srcSet
-              }
-              skills {
-                skillColor
-                skillName
-                skillPorcentage
-              }
-              gallerySection {
-                galleryTitle
-                workGalleryImgs {
-                  altText
-                  link
-                  srcSet
-                }
               }
             }
           }
         }
+      }
       `,
 		}),
 	});
