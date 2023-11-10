@@ -6,12 +6,12 @@ import Skills from '../components/index/Skills.astro';
 import getInTouchImg from '../assets/images/map.png';
 import MainMenu from '../components/menu/Main-menu.astro';
 import { homePagePostsQuery } from "../lib/api";
+import Work from '../components/index/work.astro';
 
 const data = await homePagePostsQuery();
 const {skillsTitle, skills, seoTitle, seoDescription, contactMe, gallerySection, aboutText, aboutTecnologiesItems, aboutImg} = data.pageBy.acf_index;
 //console.log(skillsTitle, seoTitle, seoDescription, contactMe, aboutText, aboutTecnologiesItems, aboutImg)
 //const posts = data.posts.nodes;
-console.log( gallerySection )
 //console.log( gallerySection )
 
 ---
@@ -21,57 +21,9 @@ console.log( gallerySection )
 	<main class="index bg-cyan  min-h-screen">
 		<Aboutme content={aboutText}  img={aboutImg} technologies={aboutTecnologiesItems}/>
 		<Skills skills={skills} contentText={skillsTitle} />
-		<section id='work' class="min-h-screen	p-4 mt-20" >
-			<div class="gallery">
-				{gallerySection.map((post:any) => 
-					<div class="gallery-content"  > 
-						<div class="title" set:html={post.galleryTitle} ></div>
-						{post.workGalleryImgs.map((img:any)=>	
-							
-								<img
-							srcset={img.srcSet}
-							sizes="(max-width: 320px) 300w,
-							(max-width: 480px) 768w,
-							1366w"
-							alt={img.altText || 'mariolafuente webdesigner'}
-							/>
-							
-						
-							)}
-						</div>
-					
-)}
-		</div>
-		</section>
+		<Work gallerySection={gallerySection}/>
 		<GetinTouch title="Get In Touch" body={contactMe} image={getInTouchImg}/>
-	
 	</main>
 </Layout>
 
-<script  >
-	const options = {
-	    root: null, // Use the viewport as the root
-	    rootMargin: '0px', // No margin
-	    threshold: 0.3, // 50% of the element is in the viewport
-	};
-
-	const observer = new IntersectionObserver((entries) => {
-	    entries.forEach((entry) => {
-	        if (entry.isIntersecting) {
-	            // The div is in the viewport
-	            entry.target.classList.add(`showAnimate`);
-	            console.log('Div is in the viewport', entry.target);
-	        } else {
-	            // The div is not in the viewport
-	            entry.target.classList.remove(`showAnimate`);
-	            console.log('Div is not in the viewport', entry.target);
-	        }
-	    });
-	}, options);
-
-	const animationDivs = document.querySelectorAll('.animate');
-	animationDivs.forEach(div => {
-	    observer.observe(div);
-	});
-
-</script> 
+<script src="../../public/js/animations.js"></script>

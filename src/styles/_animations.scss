@@ -41,9 +41,52 @@
 			@include children;
 		}
 	}
+
+	.move-in {
+		animation: moveInAnimation 1s ease-in-out;
+		z-index: 10;
+		background-color: pink;
+	}
+	.move-out {
+		animation: moveOutAnimation 1s ease-in-out forwards;
+		z-index: 10;
+		background-color: pink;
+		opacity: 0;
+	}
+	//Shine
+	@-webkit-keyframes shine {
+		100% {
+			left: 125%;
+		}
+	}
+	@keyframes shine {
+		100% {
+			left: 125%;
+		}
+	}
 	@media (prefer-reduced-motion) {
 		.noshow {
 			transition: none;
+		}
+	}
+
+	@keyframes moveInAnimation {
+		from {
+			transform: translateX(0%);
+		}
+
+		to {
+			transform: translateX(-100%);
+			opacity: 0;
+		}
+	}
+	@keyframes moveOutAnimation {
+		from {
+			transform: translateX(0%);
+		}
+
+		to {
+			transform: translateX(-100%);
 		}
 	}
 }
