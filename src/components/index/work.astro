@@ -13,7 +13,7 @@ const {  gallerySection } = Astro.props;
     {gallerySection.map((post:any) => 
       <div class="gallery-slide inactive"  > 
         <div  set:html={post.galleryTitle} ></div>
-        <div class="gallery-images grid grid-cols-3 gap-4 greenFx mySlides fade"  > 
+        <div class="gallery-images grid grid-cols-3 gap-4 greenFx mySlides "  > 
         {post.workGalleryImgs.map((img:any)=>	
           <figure>
             <img

@@ -9,7 +9,10 @@
 				transition: opacity 0.5s ease-in-out;
 				position: relative;
 				top: 0px;
-				transform: initial;
+
+				&.active {
+					transform: translateX(-100%);
+				}
 				.title {
 					@include title;
 					color: $purpleColor;
