@@ -6,7 +6,7 @@ import Skills from '../components/index/Skills.astro';
 import getInTouchImg from '../assets/images/map.png';
 import MainMenu from '../components/menu/Main-menu.astro';
 import { homePagePostsQuery } from "../lib/api";
-import Work from '../components/index/work.astro';
+import Gallery from '../components/index/gallery.astro';
 
 const data = await homePagePostsQuery();
 const {skillsTitle, skills, seoTitle, seoDescription, contactMe, gallerySection, aboutText, aboutTecnologiesItems, aboutImg} = data.pageBy.acf_index;
@@ -21,7 +21,7 @@ const {skillsTitle, skills, seoTitle, seoDescription, contactMe, gallerySection,
 	<main class="index bg-cyan  min-h-screen">
 		<Aboutme content={aboutText}  img={aboutImg} technologies={aboutTecnologiesItems}/>
 		<Skills skills={skills} contentText={skillsTitle} />
-		<Work gallerySection={gallerySection}/>
+		<Gallery gallerySection={gallerySection}/>
 		<GetinTouch title="Get In Touch" body={contactMe} image={getInTouchImg}/>
 	</main>
 </Layout>
