@@ -9,20 +9,15 @@ const {  gallerySection } = Astro.props;
 ---
 
 <section id='gallery' class="min-h-screen	p-4 gap-20 overflow-hidden" >
-  <div class="gallery  mx-auto flex flex-row flex-nowrap ">
+  <div class="gallery min-h-screen	 columns-10 mx-auto flex flex-row flex-nowrap ">
     {gallerySection.map((post:any) => 
-      <div class="gallery-slide inactive"  > 
-        <div  set:html={post.galleryTitle} ></div>
-        <div class="gallery-images grid grid-cols-3 gap-4 greenFx mySlides "  > 
+      <div class="gallery-slide inactive flex flex-col md:flex-row  bg-slate-500"  > 
+        <div class="gallery-text flex columns-6"  set:html={post.galleryTitle} ></div>
+        <div class="gallery-images columns-5 grid grid-cols-3 gap-4 greenFx mySlides bg-red-400"  > 
         {post.workGalleryImgs.map((img:any)=>	
           <figure>
-            <img
-          srcset={img.srcSet}
-          sizes="(max-width: 320px) 300w,
-          (max-width: 480px) 768w,
-          1366w"
-          alt={img.altText || 'mariolafuente webdesigner'}
-          />
+            <img  srcset={img.srcSet} sizes="(max-width: 320px) 300w, (max-width: 480px) 768w,
+          1366w" alt={img.altText || 'mariolafuente webdesigner'} />
           </figure>
         
           )}
